@@ -1,0 +1,27 @@
+@baseUrl=http://localhost:8080
+@token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNzEwOTE5MDEzLCJleHAiOjE3MTIyMTUwMTN9.2ltgDHvu2mgxvZrD0QV3N5-JcSHxPKF-WzAPVOSXidi2-PbJAbPoGctPUvkCdD46fQQ45XqT4flW3idOIYslbQ
+
+
+###
+// a63dfde7-9508-468c-8ea6-72044c040b7a
+GET {{baseUrl}}/auth HTTP/1.1
+
+###
+
+GET {{baseUrl}}/auth/public HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "username":"user",
+    "password":"password"
+}
+
+###
+
+GET {{baseUrl}}/auth/protected HTTP/1.1
+Authorization: Bearer {{token}}
